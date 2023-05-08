@@ -6,7 +6,6 @@ echo "running the script"
 #first command
 sudo dnf update -x kernel*,libdrm*,mesa*,xorg-x11-drv-a
 sudo dnf install discord
-sudo su
 cd /
 sudo touch /swapfile
 sudo fallocate -l 8G /swapfile -x
