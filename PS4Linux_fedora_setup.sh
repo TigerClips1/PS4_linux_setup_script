@@ -34,8 +34,6 @@ if [ "${swap:-0}" -eq "${swap:-1}" 2>/dev/null ]; then
     sudo mkswap /swapfile
     sudo swapon /swapfile
     echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
-    echo "Done"
-    sudo reboot
 else
  echo "please enter a Number" >&2 #error
 fi 
@@ -49,5 +47,6 @@ sudo timedatectl set-ntp true
 echo "Done" #outro
 
 echo "script By TigerClips1" #credit
+sudo reboot
 
 #end
