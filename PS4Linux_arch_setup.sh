@@ -1,14 +1,21 @@
 #!/bin/bash
 
 #first command
+sleep 5
 
 echo "running the script" #leting the user know it running the script
 
 echo "Please find your timezone by running this command timedatectl list-timezones" #discalmer
 
-echo "to find the all key layout run localectl list-keymaps"
+sleep 1
 
-sleep 5 #5 secord the script will start
+echo "to find the all keyborad layout run localectl list-keymaps"
+
+sleep 1
+
+echo "note remove this [ps4xploit-repo-arch]\nSigLevel = Optional TrustAll\nServer = https://PS4Xploit.zd.lu/Linux/Repo/x86_64 in the pacman.conf the server are down and nazky say it will never go up in /etc/pacman.conf"
+
+sleep 3 #3 secord the script will start
 
 read -rp "Enter the swap you want: " swap #user input
 
@@ -29,12 +36,13 @@ sleep 1
 while true; do
     read -p "Do you wish to install this program/update?" yn
     case $yn in
-        [Y]* ) echo "IgnorePkg = lib32-mesa* lib32-libva-mesa-driver mesa-git lib32-libdrm-git lib32-mesa-git libdrm-git xf86-video-amdgpu-git lib32-llvm-libs llvm-libs lib32-mesa libdrm mesa* lib32-libdrm llvm-libs-git lib32-llvm-libs-git lib32-libelf lib32-vulkan-mesa* lib32-opencl-mesa lib32-mesa-vdpau lib32-vulkan libva-mesa opencl-mesa vulkan* xf86-video-amdgpu libry libelf rapidyaml\nIgnoreGroup = mesa* libdrm* llvm* vulkan* libry* libelf* rapidyaml*" | sudo tee -a /etc/pacman.conf && sudo pacman -Syyu && sudo pacman -Scc && sudo pacman -S neofetch git htop   ; break;;
+        [Y]* ) echo "IgnorePkg = lib32-mesa* lib32-libva-mesa-driver mesa-git lib32-libdrm-git lib32-mesa-git libdrm-git xf86-video-amdgpu-git lib32-llvm-libs llvm-libs lib32-mesa libdrm mesa* lib32-libdrm llvm-libs-git lib32-llvm-libs-git lib32-libelf lib32-vulkan-mesa* lib32-opencl-mesa lib32-mesa-vdpau lib32-vulkan libva-mesa opencl-mesa vulkan* xf86-video-amdgpu libry libelf rapidyaml
+                    IgnoreGroup = mesa* libdrm* llvm* vulkan* libry* libelf* rapidyaml*" | sudo tee -a /etc/pacman.conf && && sudo pacman-key --init && sudo pacman-key --populate && sudo pacman-key --refresh-keys &&
+                    sudo pacman -Syy && sudo pacman -S archlinux-keyring && sudo pacman -Syyu && sudo pacman -Scc && sudo pacman -S neofetch git htop; break;;
         [N]* ) break;;
         * ) echo "Please answer Y or N.";;
     esac
 done
-
 
 #make sure the number the user want is a number not a string
 
@@ -64,12 +72,21 @@ echo "seting up your key layout"
 
 #should load the keyborad layout you pick for exmple UK your keyborad layout  will be like a UK keyborad layout
 sudo loadkeys $layout
+sleep 1
 sudo localectl set-keymap --no-convert $layout
 sleep 1
+echo "Change the /etc/X11/xorg.conf.d/00-keyboard.conf to your layout for exmple fr to us"
+sleep 1 
+sudo setxkbmap $layout
+
+sleep 1
+
 echo "Done" #outro
 
 echo "script By TigerClips1" #credit
+
 echo "PS4 will reboot in 10 secord"
+
 sleep 10
 
 sudo reboot

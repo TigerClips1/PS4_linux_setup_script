@@ -1,14 +1,19 @@
 #!/bin/sh
 
 #first command
+sleep 5
 
 echo "running the script" #leting the user know it running the script
 
 echo "Please find your timezone by running this command timedatectl list-timezones" #discalmer
 
-echo "to find the all key layout run localectl list-keymaps"
+sleep 1
 
-sleep 5 #5 secord the script will start
+echo "to find the all keyborad layout run localectl list-keymaps"
+
+sleep 1
+
+sleep 3 #3 secord the script will start
 
 read -rp "Enter the swap you want: " swap #user input
 
@@ -64,8 +69,21 @@ echo "seting up your key layout"
 
 #should load the keyborad layout you pick for exmple UK your keyborad layout  will be like a UK keyborad layout
 sudo loadkeys $layout
-sudo localectl set-keymap --no-convert $layout
+
 sleep 1
+
+sudo localectl set-keymap --no-convert $layout
+
+sleep 1
+
+echo "Change the /etc/X11/xorg.conf.d/00-keyboard.conf to your layout for exmple fr to us"
+
+sleep 1 
+
+sudo setxkbmap $layout
+
+sleep 1
+
 echo "Done" #outro
 
 echo "script By TigerClips1" #credit
