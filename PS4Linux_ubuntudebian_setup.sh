@@ -64,23 +64,17 @@ sleep 1
 sudo ln -sf /usr/share/zoneinfo/$timezone /etc/localtime
 sleep 1
 sudo timedatectl set-ntp true
-sleep 1
-echo "seting up your key layout"
-
-#should load the keyborad layout you pick for exmple UK your keyborad layout  will be like a UK keyborad layout
-sudo loadkeys $layout
 
 sleep 1
+#setting up keybored layout and language
+echo "setting up keybored layout and systen language" 
+sleep 1
 
-sudo localectl set-keymap --no-convert $layout
+sudo dpkg-reconfigure keyboard-configuration
 
 sleep 1
 
-echo "Change the /etc/X11/xorg.conf.d/00-keyboard.conf to your layout for exmple fr to us"
-
-sleep 1 
-
-sudo setxkbmap $layout
+sudo dpkg-reconfigure locales
 
 sleep 1
 
