@@ -32,8 +32,8 @@ sleep 1
 while true; do
     read -p "Do you wish to install this program/update?" yn
     case $yn in
-        [Y]* ) echo "IgnorePkg = lib32-mesa* lib32-libva-mesa-driver mesa-git lib32-libdrm-git lib32-mesa-git libdrm-git xf86-video-amdgpu-git lib32-llvm-libs llvm-libs lib32-mesa libdrm mesa* lib32-libdrm llvm-libs-git lib32-llvm-libs-git lib32-libelf lib32-vulkan-mesa* lib32-opencl-mesa lib32-mesa-vdpau lib32-vulkan libva-mesa opencl-mesa vulkan* xf86-video-amdgpu libry libelf rapidyaml
-                    IgnoreGroup = mesa* libdrm* llvm* vulkan* libry* libelf* rapidyaml*" | sudo tee -a /etc/pacman.conf && sudo pacman-key --init && sudo pacman-key --populate && sudo pacman-key --refresh-keys &&
+        [Y]* ) echo "IgnorePkg = lib32-mesa* lib32-libva-mesa-driver mesa-git lib32-libdrm-git lib32-mesa-git libdrm-git xf86-video-amdgpu-git lib32-llvm-libs llvm-libs lib32-mesa libdrm mesa* lib32-libdrm llvm-libs-git lib32-llvm-libs-git lib32-libelf lib32-vulkan-mesa* lib32-opencl-mesa lib32-mesa-vdpau lib32-vulkan libva-mesa opencl-mesa vulkan* xf86-video-amdgpu libry libelf rapidyaml lib32-vulkan-radeon*
+                    IgnoreGroup = mesa* libdrm* llvm* vulkan* libry* libelf* rapidyaml*  lib32-vulkan-radeon*" | sudo tee -a /etc/pacman.conf && sudo pacman-key --init && sudo pacman-key --populate && sudo pacman-key --refresh-keys &&
                     sudo pacman -Syy && sudo pacman -S archlinux-keyring && sudo pacman -Syyu && sudo pacman -Scc && sudo pacman -S neofetch git htop; break;;
         [N]* ) break;;
         * ) echo "Please answer Y or N.";;
