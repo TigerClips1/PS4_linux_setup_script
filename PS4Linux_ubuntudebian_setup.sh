@@ -9,10 +9,6 @@ echo "Please find your timezone by running this command timedatectl list-timezon
 
 sleep 1
 
-echo "to find the all keyborad layout run localectl list-keymaps"
-
-sleep 1
-
 sleep 3 #3 secord the script will start
 
 read -rp "Enter the swap you want: " swap #user input
@@ -20,10 +16,6 @@ read -rp "Enter the swap you want: " swap #user input
 sleep 1
 
 read -rp "Please Enter the timezone you want: " timezone  #user input
-
-sleep 1
-
-read -rp "Please Enter any keyborad layout you want: " layout #testing
 
 sleep 1
 
