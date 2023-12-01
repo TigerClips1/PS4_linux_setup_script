@@ -66,12 +66,9 @@ sleep 1
 sudo timedatectl set-ntp true
 
 sleep 1
-#setting up keybored layout and language
-echo "setting up keybored layout and systen language" 
-sleep 1
-
-sudo dpkg-reconfigure keyboard-configuration
-
+#setting up language
+echo "setting up systen language" 
+#fix bug where it ask for type of keybored
 sleep 1
 
 sudo dpkg-reconfigure locales
